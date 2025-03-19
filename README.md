@@ -9,7 +9,7 @@
 ### 核心模块
 
 - **Game.Core.Singleton<T>**: 单例模式基类，所有管理器类的基础
-- **Game.Core.EventSystem**: 事件系统，负责游戏内组件间的消息传递
+- **Game.Core.GEventSystem**: 事件系统，负责游戏内组件间的消息传递
 
 ### 管理器模块
 

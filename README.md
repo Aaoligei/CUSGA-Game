@@ -1,104 +1,111 @@
-# 简易解谜游戏开发指南
+# Unity 2D 横板剧情解密游戏框架
 
-本项目包含了一个简单的2D解谜游戏框架，使用Unity的基本图形和现有脚本即可创建一个完整的游戏。
+## 简介
 
-## 游戏概述
+这是一个基于Unity引擎开发的2D横板剧情解密游戏框架，主要面向古风题材的剧情解密游戏。框架采用模块化设计，各个功能模块之间低耦合，便于扩展和维护。
 
-这是一个简单的2D横版解谜游戏，玩家需要通过与环境中的开关交互来解决谜题，打开门，到达终点。
+## 框架结构
 
-## 创建游戏步骤
+### 核心模块
 
-### 1. 设置场景
+- **Game.Core.Singleton<T>**: 单例模式基类，所有管理器类的基础
+- **Game.Core.EventSystem**: 事件系统，负责游戏内组件间的消息传递
 
-1. 在Unity中创建一个新的2D场景
-2. 添加地面和平台（使用Unity默认的方块精灵）
-3. 设置适当的光照和相机位置
+### 管理器模块
 
-### 2. 创建玩家角色
+- **GameManager**: 游戏管理器，负责控制游戏主要流程和状态
+- **DataManager**: 数据管理器，负责游戏数据的保存、加载和管理
+- **SceneManager**: 场景管理器，负责游戏场景的加载、卸载和切换
+- **UIManager**: UI管理器，负责游戏界面的创建、显示、隐藏和管理
 
-1. 创建一个空游戏对象，命名为"Player"
-2. 添加以下组件：
-   - SpriteRenderer（使用默认方块精灵）
-   - BoxCollider2D
-   - Rigidbody2D（设置为Dynamic）
-   - PlayerController脚本
-3. 在Player下创建一个空子对象，命名为"GroundCheck"，并将其位置设置在玩家底部
-4. 在PlayerController组件中设置GroundCheck引用和Ground层
+### UI模块
 
-### 3. 创建PuzzleManager
+- **BaseUI**: UI基类，所有UI界面的基础
+- **MainUI**: 主界面（我的界面）实现
+- **CatalogUI**: 图鉴界面实现
+- **NotesUI**: 笔录界面实现（待实现）
+- **FactionUI**: 阵营界面实现
+- **SaveUI**: 存档界面实现（待实现）
+- **InvestigationUI**: 搜证界面实现
+- **ItemPopupUI**: 道具弹窗界面实现（待实现）
+- **CardPopupUI**: 卡牌弹窗界面实现（待实现）
+- **TipsPopupUI**: 锦囊弹窗界面实现（待实现）
+- **DialogUI**: 对话界面实现（待实现）
+- **CardGameUI**: 卡牌游戏界面实现（待实现）
 
-1. 创建一个空游戏对象，命名为"GameManager"
-2. 添加PuzzleManager脚本
+### 其他模块
 
-### 4. 创建开关
+- **GameEntry**: 游戏入口类，负责初始化和启动游戏
 
-1. 创建一个空游戏对象，命名为"Switch"
-2. 添加以下组件：
-   - SpriteRenderer（使用默认方块精灵，可以设置为红色表示关闭状态）
-   - BoxCollider2D（设置为IsTrigger）
-   - Switch脚本
-3. 创建两个子对象，分别命名为"VisualOn"和"VisualOff"，并添加SpriteRenderer组件
-   - VisualOn：使用绿色方块表示开启状态
-   - VisualOff：使用红色方块表示关闭状态
-4. 创建一个子对象，命名为"InteractionPrompt"，添加TextMesh组件，内容为"按E交互"
-5. 在Switch组件中设置：
-   - SwitchID：一个唯一的标识符，如"switch1"
-   - VisualOn和VisualOff引用
-   - InteractionPrompt引用
-   - PuzzleID：关联的谜题ID
+## 目录结构
 
-### 5. 创建谜题
+- **Assets/Scripts/Core**: 核心模块，包含单例模式基类和事件系统
+- **Assets/Scripts/Managers**: 管理器模块，包含各种管理器类
+- **Assets/Scripts/UI**: UI模块，包含所有UI界面类
+- **Assets/Scripts/Models**: 数据模型模块，包含各种数据模型类（待实现）
+- **Assets/Scripts/Controllers**: 控制器模块，包含各种控制器类（待实现）
+- **Assets/Scripts/Utils**: 工具模块，包含各种工具类（待实现）
+- **Assets/Prefabs**: 预制体目录，包含各种游戏预制体
+- **Assets/Resources**: 资源目录，包含游戏所需的各种资源
 
-1. 创建一个空游戏对象，命名为"Puzzle"
-2. 添加SwitchPuzzle脚本
-3. 设置PuzzleID为一个唯一标识符，如"puzzle1"
-4. 添加需要满足条件的开关列表，指定开关ID和所需状态
+## 使用方法
 
-### 6. 创建门
+### 初始化和启动游戏
 
-1. 创建一个空游戏对象，命名为"Door"
-2. 添加以下组件：
-   - SpriteRenderer（使用默认方块精灵，可以设置为棕色表示门）
-   - BoxCollider2D（设置为IsTrigger）
-   - Door脚本
-3. 创建两个子对象，分别命名为"VisualClosed"和"VisualOpen"，并添加SpriteRenderer组件
-   - VisualClosed：使用棕色方块表示关闭状态
-   - VisualOpen：使用透明度较低的棕色方块表示开启状态
-4. 创建两个子对象，分别命名为"InteractionPrompt"和"LockedPrompt"，添加TextMesh组件
-   - InteractionPrompt：内容为"按E开门"
-   - LockedPrompt：内容为"门已锁住，需要解决谜题"
-5. 在Door组件中设置：
-   - 初始状态为锁住(isLocked = true)
-   - VisualClosed和VisualOpen引用
-   - InteractionPrompt和LockedPrompt引用
-   - RequiredPuzzleID：需要解决的谜题ID，与之前创建的谜题ID对应
+1. 创建一个空的游戏对象，并添加GameEntry脚本
+2. 设置GameEntry脚本的相关参数
+3. 运行游戏，GameEntry脚本会自动初始化各个管理器，并加载主菜单场景
 
-### 7. 设置输入系统
+### 添加新的UI界面
 
-项目已经包含了InputSystem_Actions类，无需额外设置。
+1. 创建一个继承自BaseUI的新类
+2. 实现OnInit、OnShow、OnHide等方法
+3. 在UIManager的UIType枚举和相关字典中添加新的UI类型
+4. 创建对应的UI预制体，放置在Resources/UI目录下
 
-### 8. 测试游戏
+### 添加新的场景
 
-1. 运行游戏
-2. 使用WASD键移动玩家
-3. 按空格键跳跃
-4. 靠近开关时，按E键与开关交互
-5. 当所有开关都处于正确状态时，谜题将被解决，门会解锁
-6. 靠近解锁的门时，按E键打开门
+1. 创建新的场景
+2. 在SceneManager的相关方法中添加新场景的加载和切换逻辑
 
-## 扩展游戏
+### 添加新的角色和道具
 
-1. 添加更多的开关和谜题
-2. 创建多个房间和关卡
-3. 添加收集品和其他交互对象
-4. 添加敌人和障碍物
-5. 添加音效和背景音乐
-6. 添加UI界面和菜单
+1. 在DataManager中添加新的角色和道具数据结构和处理方法
+2. 创建对应的角色和道具资源，放置在Resources目录下
 
 ## 注意事项
 
-- 所有可交互对象都应该实现IInteractable接口
-- 所有谜题都应该继承自PuzzleBase类
-- 确保所有谜题都在PuzzleManager中注册
-- 使用适当的层设置来确保碰撞检测正常工作
-CUSGA比赛作品（暂定）
+- 本框架采用事件驱动的方式进行组件间通信，降低了模块间的耦合度，便于扩展和维护
+- 所有UI界面都应继承自BaseUI类，以便统一管理和处理
+- 所有管理器类都应继承自Singleton<T>类，以便实现单例模式
+- 游戏数据的保存和加载通过DataManager进行，采用JSON格式存储
+
+## 待实现功能
+
+- [x] 笔录界面实现
+- [x] 存档界面实现
+- [x] 道具弹窗界面实现
+- [x] 卡牌弹窗界面实现
+- [x] 锦囊弹窗界面实现
+- [x] 对话界面实现
+- [ ] 卡牌游戏界面实现
+- [ ] 热点系统实现
+- [ ] 角色系统实现
+- [ ] 道具系统实现
+- [ ] 卡牌系统实现
+- [ ] 对话系统实现
+- [ ] 音乐和音效系统实现
+
+## 扩展计划
+
+- [ ] 添加更多的UI界面和功能
+- [ ] 完善数据模型和控制器
+- [ ] 添加更多的场景和游戏玩法
+- [ ] 优化游戏性能和用户体验
+- [ ] 添加多语言支持
+- [ ] 添加云存档功能
+- [ ] 添加成就系统
+
+## 联系方式
+
+如有问题或建议，请联系开发者。 

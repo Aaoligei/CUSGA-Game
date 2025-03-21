@@ -10,20 +10,26 @@ namespace Game.UI
     /// </summary>
     public class MainUI : BaseUI
     {
+        
         // 顶部区域
         private Text _timeText;          // 时间文本
         private Text _actionPointsText;  // 行动点数文本
-        private Button _mapButton;       // 地图按钮
+        [SerializeField] private Button _mapButton;       // 地图按钮
         private Button _saveButton;      // 存档按钮
-        
+
         // 中央区域
-        private Button _catalogButton;   // 图鉴按钮
+        [SerializeField] private Button _catalogButton;   // 图鉴按钮
         private Button _notesButton;     // 笔录按钮
         private Button _factionButton;   // 阵营按钮
         private Button _settingsButton;  // 设置按钮
         
         // 底部区域
         private Transform _itemContainer; // 道具容器
+
+        private void Start()
+        {
+            Init(UIType.MainUI);
+        }
 
         protected override void OnInit()
         {

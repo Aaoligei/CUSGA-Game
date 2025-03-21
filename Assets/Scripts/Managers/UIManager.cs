@@ -51,7 +51,7 @@ namespace Game.Managers
         private Transform[] _layerParents;
         
         // UI预制体路径
-        private const string UI_PREFAB_PATH = "UI/";
+        private const string UI_PREFAB_PATH = "Prefabs/UI/";
         
         // 当前打开的UI列表
         private Dictionary<UIType, BaseUI> _openedUIs = new Dictionary<UIType, BaseUI>();

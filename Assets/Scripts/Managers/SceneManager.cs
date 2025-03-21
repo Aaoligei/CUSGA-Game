@@ -10,7 +10,8 @@ namespace Game.Managers
     /// 场景管理器，负责游戏场景的加载、卸载和切换
     /// </summary>
     public class SceneManager : Singleton<SceneManager>
-    {
+{
+    
         // 当前加载的场景名称
         private string _currentSceneName;
         public string CurrentSceneName => _currentSceneName;
@@ -86,7 +87,7 @@ namespace Game.Managers
                 return;
             }
 
-            StartCoroutine(LoadSceneAsync(sceneName));
+            StartCoroutine(LoadSceneDirectlyAsync(sceneName));
         }
 
         /// <summary>
@@ -276,4 +277,4 @@ namespace Game.Managers
             GameManager.Instance.EnterCardGameState();
         }
     }
-} 
+}

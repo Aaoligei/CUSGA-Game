@@ -11,6 +11,7 @@ namespace Game.Managers
     public enum UIType
     {
         None,
+        StartGameUI,      // 开始游戏界面 
         MainUI,             // 主界面
         CatalogUI,          // 图鉴界面
         NotesUI,            // 笔录界面

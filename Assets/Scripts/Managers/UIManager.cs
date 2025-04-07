@@ -25,7 +25,8 @@ namespace Game.Managers
         CardGameUI,         // 卡牌游戏界面
         LoadingUI,          // 加载界面
         SettingsUI,         // 设置界面
-        PauseUI             // 暂停界面
+        PauseUI,            // 暂停界面
+        MapUI               // 地图界面    
     }
 
     /// <summary>
@@ -76,7 +77,8 @@ namespace Game.Managers
             { UIType.CardGameUI, "CardGameUI" },
             { UIType.LoadingUI, "LoadingUI" },
             { UIType.SettingsUI, "SettingsUI" },
-            { UIType.PauseUI, "PauseUI" }
+            { UIType.PauseUI, "PauseUI" },
+            { UIType.MapUI, "地图弹窗" }
         };
         
         // UI类型到层级的映射
@@ -95,7 +97,8 @@ namespace Game.Managers
             { UIType.CardGameUI, UILayer.Normal },
             { UIType.LoadingUI, UILayer.System },
             { UIType.SettingsUI, UILayer.Popup },
-            { UIType.PauseUI, UILayer.System }
+            { UIType.PauseUI, UILayer.System },
+            { UIType.MapUI, UILayer.Popup }
         };
 
         protected override void Awake()

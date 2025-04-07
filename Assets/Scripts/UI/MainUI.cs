@@ -11,16 +11,17 @@ namespace Game.UI
     public class MainUI : BaseUI
     {
         
-        // 顶部区域
+        // 左侧区域
         private Text _timeText;          // 时间文本
         private Text _actionPointsText;  // 行动点数文本
         [SerializeField] private Button _mapButton;       // 地图按钮
-        private Button _saveButton;      // 存档按钮
 
-        // 中央区域
+        // 右侧区域
         [SerializeField] private Button _catalogButton;   // 图鉴按钮
+        private Button _saveButton;      // 存档按钮
         private Button _notesButton;     // 笔录按钮
-        private Button _factionButton;   // 阵营按钮
+        private Button _cardButton;     // 卡牌按钮
+        private Button _tipButton;       // 锦囊按钮
         private Button _settingsButton;  // 设置按钮
         
         // 底部区域
@@ -53,20 +54,20 @@ namespace Game.UI
             // 顶部区域
             _timeText = GetText("TimeText");
             _actionPointsText = GetText("ActionPointsText");
-            _mapButton = GetButton("MapButton");
+            _mapButton = GetButton("地图按钮");
             _saveButton = GetButton("SaveButton");
             
             // 中央区域
             _catalogButton = GetButton("CatalogButton");
             _notesButton = GetButton("NotesButton");
-            _factionButton = GetButton("FactionButton");
+            _cardButton = GetButton("FactionButton");
             _settingsButton = GetButton("SettingsButton");
             
             // 底部区域
             _itemContainer = transform.Find("ItemContainer");
             
             // 添加按钮点击事件
-            AddButtonClickListener("MapButton", OnMapButtonClick);
+            AddButtonClickListener("地图按钮", OnMapButtonClick);
             AddButtonClickListener("SaveButton", OnSaveButtonClick);
             AddButtonClickListener("CatalogButton", OnCatalogButtonClick);
             AddButtonClickListener("NotesButton", OnNotesButtonClick);
@@ -196,7 +197,7 @@ namespace Game.UI
         {
             Debug.Log("点击地图按钮");
             // 打开地图界面
-            // UIManager.Instance.OpenUI(UIType.MapUI);
+            UIManager.Instance.OpenUI(UIType.MapUI);
         }
 
         /// <summary>
@@ -295,6 +296,16 @@ namespace Game.UI
             {
                 GEventSystem.Instance.RemoveListener(GameEvents.ItemCollected, OnItemCollected);
             }
+        }
+
+        public void ShowOutline(Image image)
+        {
+            image.gameObject.SetActive(true);
+        }
+
+        public void HideOutline(Image image)
+        {
+            image.gameObject.SetActive(false);
         }
     }
 } 

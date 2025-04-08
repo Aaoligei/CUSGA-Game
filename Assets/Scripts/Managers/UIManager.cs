@@ -66,7 +66,7 @@ namespace Game.Managers
         {
             { UIType.MainUI, "MainUI" },
             { UIType.CatalogUI, "CatalogUI" },
-            { UIType.NotesUI, "NotesUI" },
+            { UIType.NotesUI, "笔录弹窗" },
             { UIType.FactionUI, "FactionUI" },
             { UIType.SaveUI, "SaveUI" },
             { UIType.InvestigationUI, "InvestigationUI" },
@@ -86,7 +86,7 @@ namespace Game.Managers
         {
             { UIType.MainUI, UILayer.Normal },
             { UIType.CatalogUI, UILayer.Normal },
-            { UIType.NotesUI, UILayer.Normal },
+            { UIType.NotesUI, UILayer.Popup },
             { UIType.FactionUI, UILayer.Normal },
             { UIType.SaveUI, UILayer.Normal },
             { UIType.InvestigationUI, UILayer.Normal },

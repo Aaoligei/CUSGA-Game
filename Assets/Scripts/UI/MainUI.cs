@@ -59,7 +59,7 @@ namespace Game.UI
             
             // 中央区域
             _catalogButton = GetButton("CatalogButton");
-            _notesButton = GetButton("NotesButton");
+            _notesButton = GetButton("笔录按钮");
             _cardButton = GetButton("FactionButton");
             _settingsButton = GetButton("SettingsButton");
             
@@ -70,7 +70,7 @@ namespace Game.UI
             AddButtonClickListener("地图按钮", OnMapButtonClick);
             AddButtonClickListener("SaveButton", OnSaveButtonClick);
             AddButtonClickListener("CatalogButton", OnCatalogButtonClick);
-            AddButtonClickListener("NotesButton", OnNotesButtonClick);
+            AddButtonClickListener("笔录按钮", OnNotesButtonClick);
             AddButtonClickListener("FactionButton", OnFactionButtonClick);
             AddButtonClickListener("SettingsButton", OnSettingsButtonClick);
         }

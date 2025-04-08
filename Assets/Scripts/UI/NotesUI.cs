@@ -13,8 +13,8 @@ namespace Game.UI
     {
         // 一级页面
         private Button _backButton;                 // 返回按钮
-        private Transform _characterList;           // 角色列表容器
-        
+        [SerializeField]private Transform _characterList;           // 角色列表容器
+       
         // 二级页面
         private GameObject _notesPanel;             // 笔录面板
         private Text _characterNameText;            // 角色名称文本
@@ -64,8 +64,8 @@ namespace Game.UI
         private void InitComponents()
         {
             // 一级页面
-            _backButton = GetButton("BackButton");
-            _characterList = transform.Find("CharacterList");
+            _backButton = GetButton("关闭按钮");
+            _characterList = transform.Find("滑条/视口/内容/parent");
             
             // 二级页面
             _notesPanel = transform.Find("NotesPanel").gameObject;

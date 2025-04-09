@@ -59,8 +59,8 @@ namespace Game.UI
         private void InitComponents()
         {
             // 获取界面组件
-            _backButton = GetButton("BackButton");
-            _newSaveButton = GetButton("NewSaveButton");
+            _backButton = GetButton("取消按钮");
+            _newSaveButton = GetButton("新存档按钮");
             _saveItemContainer = transform.Find("SaveItemContainer");
             _confirmPanel = transform.Find("ConfirmPanel").gameObject;
             _confirmText = _confirmPanel.transform.Find("ConfirmText").GetComponent<Text>();
@@ -71,8 +71,8 @@ namespace Game.UI
             _saveItemPrefab = Resources.Load<GameObject>("Prefabs/UI/SaveItem");
             
             // 添加按钮点击事件
-            AddButtonClickListener("BackButton", OnBackButtonClick);
-            AddButtonClickListener("NewSaveButton", OnNewSaveButtonClick);
+            AddButtonClickListener("取消按钮", OnBackButtonClick);
+            AddButtonClickListener("新存档按钮", OnNewSaveButtonClick);
             _confirmYesButton.onClick.AddListener(OnConfirmYesButtonClick);
             _confirmNoButton.onClick.AddListener(OnConfirmNoButtonClick);
             

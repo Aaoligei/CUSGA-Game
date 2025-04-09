@@ -134,8 +134,8 @@ namespace Game.UI
                         saveItem.Init(0, "存档 #1", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), "当前游戏进度：" + (DataManager.Instance.CurrentSaveData.gameProgress * 100) + "%");
                         
                         // 添加点击事件
-                        Button loadButton = saveItemObj.transform.Find("LoadButton").GetComponent<Button>();
-                        Button saveButton = saveItemObj.transform.Find("SaveButton").GetComponent<Button>();
+                        Button loadButton = saveItemObj.transform.Find("加载按钮").GetComponent<Button>();
+                        Button saveButton = saveItemObj.transform.Find("保存按钮").GetComponent<Button>();
                         Button deleteButton = saveItemObj.transform.Find("DeleteButton").GetComponent<Button>();
                         
                         loadButton.onClick.AddListener(() => OnLoadButtonClick(0));

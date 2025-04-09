@@ -830,7 +830,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &692829932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1080,7 +1080,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &817037040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1499,7 +1499,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1187172306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2328,6 +2328,10 @@ PrefabInstance:
     - target: {fileID: 2670142350415324876, guid: e116f5475c85a5d4e8215ed845050841, type: 3}
       propertyPath: m_Name
       value: "\u5BF9\u8BDD\u5F39\u7A97"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2670142350415324876, guid: e116f5475c85a5d4e8215ed845050841, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3029728578890977409, guid: e116f5475c85a5d4e8215ed845050841, type: 3}
       propertyPath: m_Pivot.x

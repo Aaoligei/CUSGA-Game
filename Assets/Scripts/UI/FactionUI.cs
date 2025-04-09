@@ -54,14 +54,14 @@ namespace Game.UI
             _characterContainer = transform.Find("CharacterContainer");
             _tangFactionSlot = transform.Find("TangFactionSlot");
             _songFactionSlot = transform.Find("SongFactionSlot");
-            _submitButton = GetButton("SubmitButton");
+            _submitButton = GetButton("提交按钮");
             
             // 加载预制体
             _characterCardPrefab = Resources.Load<GameObject>("Prefabs/UI/CharacterCard");
             
             // 添加按钮点击事件
             AddButtonClickListener("BackButton", OnBackButtonClick);
-            AddButtonClickListener("SubmitButton", OnSubmitButtonClick);
+            AddButtonClickListener("提交按钮", OnSubmitButtonClick);
         }
 
         /// <summary>

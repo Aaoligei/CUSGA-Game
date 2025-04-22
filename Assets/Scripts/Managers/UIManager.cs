@@ -65,7 +65,7 @@ namespace Game.Managers
         private Dictionary<UIType, string> _uiTypeToName = new Dictionary<UIType, string>
         {
             { UIType.MainUI, "MainUI" },
-            { UIType.CatalogUI, "CatalogUI" },
+            { UIType.CatalogUI, "图鉴界面" },
             { UIType.NotesUI, "笔录弹窗" },
             { UIType.FactionUI, "FactionUI" },
             { UIType.SaveUI, "SaveUI" },

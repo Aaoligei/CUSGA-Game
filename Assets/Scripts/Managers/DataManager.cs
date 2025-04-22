@@ -40,10 +40,11 @@ namespace Game.Managers
     /// 角色数据类
     /// </summary>
     [Serializable]
-    public class CharacterData
+    [CreateAssetMenu(fileName = "CharacterData", menuName = "Game/CharacterData", order = 1)]
+    public class CharacterData:ScriptableObject
     {
         public string id;                      // 角色ID
-        public string name;                    // 角色名称
+        public string cname;                    // 角色名称
         public string description;             // 角色描述
         public bool isUnlocked;                // 是否已解锁
         public List<string> relatedItems;      // 相关道具ID列表

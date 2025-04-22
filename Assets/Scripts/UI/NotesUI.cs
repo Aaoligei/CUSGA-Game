@@ -64,8 +64,10 @@ namespace Game.UI
         private void InitComponents()
         {
             // 一级页面
+            RectTransform rectTransform = GetComponent<RectTransform>();
             _backButton = GetButton("关闭按钮");
-            _characterList = transform.Find("滑条/视口/内容/parent");
+            _characterList = transform.Find("人物滑条/视口/内容");
+            Debug.Log("sadad");
             
             // 二级页面
             _notesPanel = transform.Find("NotesPanel").gameObject;

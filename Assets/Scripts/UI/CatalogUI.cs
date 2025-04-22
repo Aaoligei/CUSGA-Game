@@ -14,9 +14,11 @@ namespace Game.UI
         // 一级页面
         private Button _backButton;         // 返回按钮
         private Transform _characterList;   // 角色列表容器
-        
+
         // 二级页面
-        private GameObject _detailPanel;    // 详情面板
+        [Header("二级页面")]
+        [Space(10)]
+        public GameObject _detailPanel;    // 详情面板
         private Image _characterImage;      // 角色图片
         private Text _characterName;        // 角色名称
         private Text _characterDesc;        // 角色描述
@@ -52,23 +54,23 @@ namespace Game.UI
         private void InitComponents()
         {
             // 一级页面
-            _backButton = GetButton("BackButton");
-            _characterList = transform.Find("CharacterList");
+            _backButton = GetButton("关闭按钮");
+            _characterList = transform.Find("图鉴滑条/视口/内容");
             
             // 二级页面
-            _detailPanel = transform.Find("DetailPanel").gameObject;
-            _characterImage = _detailPanel.transform.Find("CharacterImage").GetComponent<Image>();
-            _characterName = _detailPanel.transform.Find("CharacterInfo/NameText").GetComponent<Text>();
-            _characterDesc = _detailPanel.transform.Find("CharacterInfo/DescText").GetComponent<Text>();
-            _itemList = _detailPanel.transform.Find("ItemList");
-            _closeDetailButton = _detailPanel.transform.Find("CloseButton").GetComponent<Button>();
+            
+            _characterImage = _detailPanel.transform.Find("角色图片").GetComponent<Image>();
+            _characterName = _detailPanel.transform.Find("角色名称/Text").GetComponent<Text>();
+            _characterDesc = _detailPanel.transform.Find("角色描述/Text").GetComponent<Text>();
+            _itemList = _detailPanel.transform.Find("道具框");
+            _closeDetailButton = _detailPanel.transform.Find("返回按钮").GetComponent<Button>();
             
             // 加载预制体
             _characterItemPrefab = Resources.Load<GameObject>("Prefabs/UI/CharacterItem");
             _itemItemPrefab = Resources.Load<GameObject>("Prefabs/UI/ItemItem");
             
             // 添加按钮点击事件
-            AddButtonClickListener("BackButton", OnBackButtonClick);
+            AddButtonClickListener("关闭按钮", OnBackButtonClick);
             _closeDetailButton.onClick.AddListener(OnCloseDetailButtonClick);
             
             // 初始显示一级页面
@@ -106,36 +108,47 @@ namespace Game.UI
                 return;
             }
             
-            // 清空角色列表
-            foreach (Transform child in _characterList)
-            {
-                Destroy(child.gameObject);
-            }
+            //// 清空角色列表
+            //foreach (Transform child in _characterList)
+            //{
+            //    Destroy(child.gameObject);
+            //}
             
             // 获取已解锁的角色
             DataManager dataManager = DataManager.Instance;
             if (dataManager != null)
             {
-                foreach (string characterId in dataManager.UnlockedCharacters)
+                //foreach (string characterId in dataManager.UnlockedCharacters)
+                //{
+                //// 创建角色项
+                //if (_characterItemPrefab != null)
+                //{
+                //    GameObject characterObj = Instantiate(_characterItemPrefab, _characterList);
+
+                //    // 设置角色数据
+                //    CharacterItem characterItem = characterObj.GetComponent<CharacterItem>();
+                //    if (characterItem != null)
+                //    {
+                //        characterItem.Init(characterId);
+
+                //        // 添加点击事件
+                //        Button button = characterObj.GetComponent<Button>();
+                //        if (button != null)
+                //        {
+                //            button.onClick.AddListener(() => OnCharacterItemClick(characterId));
+                //        }
+                //    }
+                //}
+                //}
+
+                // 遍历所有角色数据
+                foreach(Transform child in _characterList)
                 {
-                    // 创建角色项
-                    if (_characterItemPrefab != null)
+                    // 添加点击事件
+                    Button button = child.GetComponent<Button>();
+                    if (button != null)
                     {
-                        GameObject characterObj = Instantiate(_characterItemPrefab, _characterList);
-                        
-                        // 设置角色数据
-                        CharacterItem characterItem = characterObj.GetComponent<CharacterItem>();
-                        if (characterItem != null)
-                        {
-                            characterItem.Init(characterId);
-                            
-                            // 添加点击事件
-                            Button button = characterObj.GetComponent<Button>();
-                            if (button != null)
-                            {
-                                button.onClick.AddListener(() => OnCharacterItemClick(characterId));
-                            }
-                        }
+                        button.onClick.AddListener(() => OnCharacterItemClick(child.GetComponent<Image>().name));
                     }
                 }
             }

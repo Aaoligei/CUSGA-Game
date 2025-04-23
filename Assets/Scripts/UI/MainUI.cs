@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Game.Managers;
 using Game.Core;
+using System;
 
 namespace Game.UI
 {
@@ -23,7 +24,8 @@ namespace Game.UI
         private Button _cardButton;     // 卡牌按钮
         private Button _tipButton;       // 锦囊按钮
         private Button _settingsButton;  // 设置按钮
-        
+        private Button _factionButton;   // 阵营按钮
+
         // 底部区域
         private Transform _itemContainer; // 道具容器
 
@@ -60,9 +62,10 @@ namespace Game.UI
             // 中央区域
             _catalogButton = GetButton("图鉴按钮");
             _notesButton = GetButton("笔录按钮");
-            _cardButton = GetButton("FactionButton");
+            _cardButton = GetButton("卡牌按钮");
             _settingsButton = GetButton("SettingsButton");
-            
+            _factionButton = GetButton("FactionButton");
+
             // 底部区域
             _itemContainer = transform.Find("ItemContainer");
             
@@ -73,7 +76,9 @@ namespace Game.UI
             AddButtonClickListener("笔录按钮", OnNotesButtonClick);
             AddButtonClickListener("FactionButton", OnFactionButtonClick);
             AddButtonClickListener("SettingsButton", OnSettingsButtonClick);
+            AddButtonClickListener("卡牌按钮", OnCardButtonClick);
         }
+
 
         /// <summary>
         /// 注册事件
@@ -198,6 +203,16 @@ namespace Game.UI
             Debug.Log("点击地图按钮");
             // 打开地图界面
             UIManager.Instance.OpenUI(UIType.MapUI);
+        }
+
+        /// <summary>
+        /// 卡牌按钮点击事件
+        /// </summary>
+        private void OnCardButtonClick()
+        {
+            Debug.Log("点击卡牌按钮");
+            // 打开卡牌界面
+            UIManager.Instance.OpenUI(UIType.CardPopupUI);
         }
 
         /// <summary>

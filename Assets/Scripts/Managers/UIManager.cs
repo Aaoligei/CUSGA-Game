@@ -71,7 +71,7 @@ namespace Game.Managers
             { UIType.SaveUI, "SaveUI" },
             { UIType.InvestigationUI, "InvestigationUI" },
             { UIType.ItemPopupUI, "ItemPopupUI" },
-            { UIType.CardPopupUI, "CardPopupUI" },
+            { UIType.CardPopupUI, "卡牌弹窗" },
             { UIType.TipsPopupUI, "TipsPopupUI" },
             { UIType.DialogUI, "DialogUI" },
             { UIType.CardGameUI, "CardGameUI" },

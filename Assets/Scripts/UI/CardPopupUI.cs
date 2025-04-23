@@ -18,7 +18,17 @@ namespace Game.UI
         private Text _cardDescriptionText;     // 卡牌描述文本
         private Text _cardEffectText;          // 卡牌效果文本
         private Button _useButton;             // 使用按钮
-        
+
+        private Button _weibiButton;           // 威逼按钮
+        private Button _liyouButton;           // 利诱按钮
+        private Button _chanjiButton;          // 禅机按钮
+        private Button _gongqingButton;        // 共情按钮
+
+        private Image _weibiSelectImage;      // 威逼选中图片
+        private Image _liyouSelectImage;      // 利诱选中图片
+        private Image _chanjiSelectImage;     // 禅机选中图片
+        private Image _gongqingSelectImage;   // 共情选中图片
+
         // 当前显示的卡牌ID
         private string _currentCardId;
         
@@ -60,11 +70,57 @@ namespace Game.UI
             _cardDescriptionText = GetText("CardDescriptionText");
             _cardEffectText = GetText("CardEffectText");
             _useButton = GetButton("UseButton");
-            
+
+            _weibiButton = GetButton("威逼按钮");
+            _liyouButton = GetButton("利诱按钮");
+            _chanjiButton = GetButton("禅机按钮");
+            _gongqingButton = GetButton("共情按钮");
+
+            _weibiSelectImage = GetImage("威逼按钮选中");
+            _liyouSelectImage = GetImage("利诱按钮选中");
+            _chanjiSelectImage = GetImage("禅机按钮选中");
+            _gongqingSelectImage = GetImage("共情按钮选中");
+
+            _weibiSelectImage.gameObject.SetActive(false);
+            _liyouSelectImage.gameObject.SetActive(false);
+            _chanjiSelectImage.gameObject.SetActive(false);
+            _gongqingSelectImage.gameObject.SetActive(false);
+
             // 添加按钮点击事件
             AddButtonClickListener("CloseButton", OnCloseButtonClick);
             AddButtonClickListener("UseButton", OnUseButtonClick);
-            
+
+            AddButtonClickListener("威逼按钮", () => { 
+                _weibiSelectImage.gameObject.SetActive(true);
+                _liyouSelectImage.gameObject.SetActive(false);
+                _chanjiSelectImage.gameObject.SetActive(false);
+                _gongqingSelectImage.gameObject.SetActive(false);
+            });
+
+            AddButtonClickListener("利诱按钮", () =>
+            {
+                _weibiSelectImage.gameObject.SetActive(false);
+                _liyouSelectImage.gameObject.SetActive(true);
+                _chanjiSelectImage.gameObject.SetActive(false);
+                _gongqingSelectImage.gameObject.SetActive(false);
+            });
+
+            AddButtonClickListener("禅机按钮", () =>
+            {
+                _weibiSelectImage.gameObject.SetActive(false);
+                _liyouSelectImage.gameObject.SetActive(false);
+                _chanjiSelectImage.gameObject.SetActive(true);
+                _gongqingSelectImage.gameObject.SetActive(false);
+            });
+
+            AddButtonClickListener("共情按钮", () =>
+            {
+                _weibiSelectImage.gameObject.SetActive(false);
+                _liyouSelectImage.gameObject.SetActive(false);
+                _chanjiSelectImage.gameObject.SetActive(false);
+                _gongqingSelectImage.gameObject.SetActive(true);
+            });
+
             // 初始隐藏使用按钮
             if (_useButton != null)
             {

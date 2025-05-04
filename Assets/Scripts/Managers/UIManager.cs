@@ -27,7 +27,8 @@ namespace Game.Managers
         SettingsUI,         // 设置界面
         PauseUI,            // 暂停界面
         MapUI,              // 地图界面
-        BagUI               // 背包界面
+        BagUI,              // 背包界面
+        GetItemUI,          // 获得物品弹窗
     }
 
     /// <summary>
@@ -80,7 +81,8 @@ namespace Game.Managers
             { UIType.SettingsUI, "SettingsUI" },
             { UIType.PauseUI, "PauseUI" },
             { UIType.MapUI, "地图弹窗" },
-            {UIType.BagUI,"背包弹窗" }
+            {UIType.BagUI,"背包弹窗" },
+            {UIType.GetItemUI,"获取道具弹窗" }
         };
         
         // UI类型到层级的映射
@@ -101,7 +103,8 @@ namespace Game.Managers
             { UIType.SettingsUI, UILayer.Popup },
             { UIType.PauseUI, UILayer.System },
             { UIType.MapUI, UILayer.Popup },
-            { UIType.BagUI, UILayer.Popup }
+            { UIType.BagUI, UILayer.Popup },
+            {UIType.GetItemUI, UILayer.Popup }
         };
 
         protected override void Awake()

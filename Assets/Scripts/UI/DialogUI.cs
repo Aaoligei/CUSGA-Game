@@ -26,7 +26,7 @@ namespace Game.UI
         
         // 配置参数
         private float _typingSpeed = 0.05f;       // 打字速度
-        private bool _isTyping = false;           // 是否正在打字
+        private bool _isTyping = true;           // 是否正在打字
         private bool _isWaitingForInput = false;  // 是否等待输入
         
         // 当前对话数据
@@ -79,6 +79,7 @@ namespace Game.UI
             // 初始化对话数据
             InitDialogData();
         }
+
 
         /// <summary>
         /// 初始化界面组件

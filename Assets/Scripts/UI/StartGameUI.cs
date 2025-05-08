@@ -11,7 +11,9 @@ namespace Game.UI {
             AddButtonClickListener("开始游戏按钮",()=>
             {
                 // 点击开始游戏按钮时，加载主菜单场景
-                Game.Managers.SceneManager.Instance.LoadMainMenu();
+                //Game.Managers.SceneManager.Instance.LoadMainMenu();
+                //暂时改为加载引导场景
+                Game.Managers.SceneManager.Instance.LoadScene("GuideLevel");
             });
 
             AddButtonClickListener("继续游戏按钮", () =>

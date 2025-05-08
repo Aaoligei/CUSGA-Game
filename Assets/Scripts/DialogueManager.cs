@@ -42,6 +42,9 @@ public class DialogueManager : MonoBehaviour
     // 游戏流程数据
     private Dictionary<string, int> storyFlags = new Dictionary<string, int>();
     
+    // 为外部访问提供对话控制器
+    public DialogueController DialogueController => dialogueController;
+    
     void Awake()
     {
         // 初始化组件
@@ -248,7 +251,9 @@ public class DialogueController : MonoBehaviour
     private bool isInDialogue = false;      // 是否在对话中
     private bool isTyping = false;          // 是否正在打字
     private bool waitingForInput = false;   // 是否等待输入
-    
+
+    public bool isSpecialAction = false; // 是否是特殊事件
+
     // 公开属性
     public bool IsInDialogue => isInDialogue;
     
@@ -259,11 +264,44 @@ public class DialogueController : MonoBehaviour
     public System.Action<string> OnDialogueStart;
     public System.Action<string> OnDialogueEnd;
     public System.Action<int> OnOptionSelected;
+    
+    // 对话回调系统 - 用于在播放特定对话时调用其他脚本的函数
+    private Dictionary<int, System.Action> dialogueCallbacks = new Dictionary<int, System.Action>();
+    
+    /// <summary>
+    /// 注册对话回调 - 在特定索引的对话播放时调用指定函数
+    /// </summary>
+    /// <param name="entryIndex">对话条目索引</param>
+    /// <param name="callback">要调用的回调函数</param>
+    public void RegisterDialogueCallback(int entryIndex, System.Action callback)
+    {
+        dialogueCallbacks[entryIndex] = callback;
+    }
+    
+    /// <summary>
+    /// 移除对话回调
+    /// </summary>
+    /// <param name="entryIndex">对话条目索引</param>
+    public void RemoveDialogueCallback(int entryIndex)
+    {
+        if (dialogueCallbacks.ContainsKey(entryIndex))
+        {
+            dialogueCallbacks.Remove(entryIndex);
+        }
+    }
+    
+    /// <summary>
+    /// 清除所有对话回调
+    /// </summary>
+    public void ClearAllDialogueCallbacks()
+    {
+        dialogueCallbacks.Clear();
+    }
 
     void Update()
     {
         // 检测鼠标点击或键盘按键继续对话
-        if (isInDialogue && (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)))
+        if (!isSpecialAction&& isInDialogue && (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)))
         {
             // 如果正在打字，立即完成当前文本
             if (isTyping)
@@ -381,6 +419,12 @@ public class DialogueController : MonoBehaviour
         }
         
         typingCoroutine = StartCoroutine(TypeText(entry.content));
+        
+        // 检查并执行当前对话索引的回调函数
+        if (dialogueCallbacks.TryGetValue(currentEntryIndex, out System.Action callback))
+        {
+            callback?.Invoke();
+        }
     }
     
     // 根据说话者类型更新角色立绘

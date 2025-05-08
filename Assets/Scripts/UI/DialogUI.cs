@@ -48,8 +48,11 @@ namespace Game.UI
             public int NextNodeId = -1;        // 下一节点ID
         }
         
+        /// <summary>
+        /// 公开对话节点类便于外部使用
+        /// </summary>
         [System.Serializable]
-        private class DialogChoice
+        public class DialogChoice
         {
             public string Text;                // 选项文本
             public int NextNodeId;             // 下一节点ID
@@ -443,6 +446,12 @@ namespace Game.UI
                         ExecuteChoiceAction(choice.ActionId);
                     }
                     
+                    // 调用外部注册的回调
+                    if (_optionSelectedCallback != null)
+                    {
+                        _optionSelectedCallback(choice.NextNodeId);
+                    }
+                    
                     // 根据选项进入下一个节点
                     if (choice.NextNodeId >= 0 && choice.NextNodeId < _currentDialog.Nodes.Count)
                     {
@@ -540,5 +549,39 @@ namespace Game.UI
             // 停止所有协程
             StopAllCoroutines();
         }
+
+        /// <summary>
+        /// 向外部提供的显示对话节点方法
+        /// </summary>
+        /// <param name="speakerName">说话者名称</param>
+        /// <param name="content">对话内容</param>
+        /// <param name="isLeft">是否显示在左侧</param>
+        public void ShowDialogNode(string speakerName, string content, bool isLeft)
+        {
+            // 创建临时对话节点
+            DialogNode node = new DialogNode
+            {
+                SpeakerId = speakerName,  // 使用名称作为ID
+                SpeakerName = speakerName,
+                Content = content,
+                IsLeft = isLeft
+            };
+            
+            // 调用内部方法显示对话
+            ShowDialogNode(node);
+        }
+
+        /// <summary>
+        /// 注册对话选项选择回调
+        /// </summary>
+        /// <param name="callback">回调方法</param>
+        public void RegisterOptionSelectedCallback(System.Action<int> callback)
+        {
+            // 存储外部回调
+            _optionSelectedCallback = callback;
+        }
+
+        // 外部选项选择回调
+        private System.Action<int> _optionSelectedCallback;
     }
 } 

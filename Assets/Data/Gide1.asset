@@ -1,0 +1,159 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d298d25409839774a9c4f3bf4549a6f1, type: 3}
+  m_Name: Gide1
+  m_EditorClassIdentifier: 
+  dialogueName: "\u5F15\u5BFC\u4E00\u5BF9\u8BDD"
+  entries:
+  - speaker: "\u7687\u4E0A"
+    speakerType: 1
+    content: "\u5468\u6587\u77E9\u5165\u97E9\u5E9C\u4E09\u65E5\u6773\u65E0\u97F3\u4FE1\uFF01\u97E9\u5E9C\u7684\u95E8\u69DB\uFF0C\u83AB\u975E\u6BD4\u5357\u6C49\u7684\u56DA\u7262\u8FD8\u9AD8\uFF1F\u6715\u8981\u4ED6\u753B\u97E9\u7199\u8F7D\u9189\u6001\uFF0C\u4E0D\u662F\u8981\u4ED6\u628A\u81EA\u5DF1\u753B\u8FDB\u68FA\u6750\u91CC\uFF01"
+    hasOptions: 0
+    topOption:
+      optionText: 
+      nextDialogueIndex: 0
+    bottomOption:
+      optionText: 
+      nextDialogueIndex: 0
+    nextDialogueIndex: 1
+  - speaker: "\u987E\u95F3\u4E2D"
+    speakerType: 2
+    content: "\u97E9\u516C\u591C\u5BB4\u7B19\u6B4C\uFF0C\u5468\u5144\u6216\u9189\u5367\u53A2\u623F\u672A\u9192\u2026\u2026"
+    hasOptions: 0
+    topOption:
+      optionText: 
+      nextDialogueIndex: 0
+    bottomOption:
+      optionText: 
+      nextDialogueIndex: 0
+    nextDialogueIndex: 2
+  - speaker: "\u7687\u4E0A"
+    speakerType: 1
+    content: "\u9189\uFF1F\u4ED6\u82E5\u771F\u9189\uFF0C\u6DEE\u5357\u7684\u519B\u62A5\u600E\u4F1A\u591C\u591C\u538B\u5F97\u6715\u5598\u4E0D\u8FC7\u6C14\uFF01"
+    hasOptions: 0
+    topOption:
+      optionText: 
+      nextDialogueIndex: 0
+    bottomOption:
+      optionText: 
+      nextDialogueIndex: 0
+    nextDialogueIndex: 3
+  - speaker: "\u7687\u4E0A"
+    speakerType: 1
+    content: "\u597D\u4E2A\u97E9\u7199\u8F7D\uFF01\u591C\u591C\u7B19\u6B4C\u5012\u6BD4\u6715\u7684\u5723\u65E8\u8FD8\u91D1\u8D35\uFF01\u82E5\u4ED6\u771F\u9189\u751F\u68A6\u6B7B\uFF0C\u6715\u5012\u5B89\u5FC3\u4E86\u3002\u53EF\u4ED6\u90A3\u9152\u6A3D\u91CC\uFF0C\u5F53\u771F\u53EA\u76DB\u7740\u8461\u8404\u917F\uFF1F"
+    hasOptions: 0
+    topOption:
+      optionText: 
+      nextDialogueIndex: 0
+    bottomOption:
+      optionText: 
+      nextDialogueIndex: 0
+    nextDialogueIndex: 4
+  - speaker: "\u987E\u95F3\u4E2D"
+    speakerType: 2
+    content: "\u81E3\u613F\u4E3A\u965B\u4E0B\u5206\u5FE7\uFF0C\u97E9\u516C\u9189\u4E2D\u5F62\u8C8C\uFF0C\u5FC5\u4EE5\u7B14\u58A8\u5982\u5B9E\u76F8\u5F55\u3002"
+    hasOptions: 0
+    topOption:
+      optionText: 
+      nextDialogueIndex: 0
+    bottomOption:
+      optionText: 
+      nextDialogueIndex: 0
+    nextDialogueIndex: 5
+  - speaker: "\u7687\u4E0A"
+    speakerType: 1
+    content: "\u4F60\u53BB\u97E9\u5E9C\u2014\u2014\u82E5\u89C1\u7740\u4E0D\u8BE5\u89C1\u7684\u2026\u2026\uFF08\u5FFD\u987F\u4F4F\uFF09\u7F62\u4E86\uFF0C\u753B\u6E05\u4ED6\u7684\u773C\uFF01\u6715\u8981\u770B\u770B\uFF0C\u90A3\u53CC\u773C\u91CC\u5230\u5E95\u76DB\u7684\u662F\u9152\uFF0C\u8FD8\u662F\u706B\uFF01\u82E5\u89C1\u7740\u72FC\u70DF\uFF0C\u4FBF\u7528\u7B14\u58A8\uFF0C\u753B\u4E2A\u5E72\u51C0\u3002\uFF08\u5FFD\u53C8\u5583\u5583\uFF09\u6628\u591C\u592A\u53F2\u5C40\u535C\u5F97\u8367\u60D1\u5B88\u5FC3\uFF0C\u4F60\u8BF4\uFF0C\u8FD9\u5929\u8C61\uFF0C\u662F\u4EA1\u5357\u5510\uFF0C\u8FD8\u662F\u4EA1\u6715\uFF1F\u987E\u537F\uFF0C\u4E0A\u6708\u6715\u547D\u4F60\u753B\u7684\u300A\u6625\u6C5F\u591C\u5BB4\u56FE\u300B\uFF0C\u8FD9\u821F\u4E0A\u4E3A\u4F55\u65E0\u6868\uFF1F"
+    hasOptions: 0
+    topOption:
+      optionText: 
+      nextDialogueIndex: 0
+    bottomOption:
+      optionText: 
+      nextDialogueIndex: 0
+    nextDialogueIndex: 6
+  - speaker: "\u987E\u95F3\u4E2D"
+    speakerType: 2
+    content: "\u65E0\u6868\u4E4B\u821F\uFF0C\u987A\u6D41\u800C\u901D\uFF0C\u65B9\u663E\u2026\u2026\u5929\u5730\u60A0\u60A0\u3002"
+    hasOptions: 0
+    topOption:
+      optionText: 
+      nextDialogueIndex: 0
+    bottomOption:
+      optionText: 
+      nextDialogueIndex: 0
+    nextDialogueIndex: 7
+  - speaker: "\u7687\u4E0A"
+    speakerType: 1
+    content: "\u5999\u6781\uFF01\u96BE\u602A\u97E9\u7199\u8F7D\u5938\u4F60\u201C\u7B14\u5E95\u6709\u4E7E\u5764\u201D\uFF01\uFF08\u7B11\u58F0\u6E10\u4F4E\uFF09\u53EF\u8FD9\u4E7E\u5764\uFF0C\u5BB9\u5F97\u4E0B\u6715\u5417\uFF1F"
+    hasOptions: 0
+    topOption:
+      optionText: 
+      nextDialogueIndex: 0
+    bottomOption:
+      optionText: 
+      nextDialogueIndex: 0
+    nextDialogueIndex: 8
+  - speaker: "\u65C1\u767D"
+    speakerType: 0
+    content: "\u4E8C\u9009\u4E00\u5206\u652F\uFF08\u4EC5\u6587\u672C\u5DEE\u5F02\uFF0C\u4E0D\u5F71\u54CD\u4E3B\u7EBF\uFF09"
+    hasOptions: 1
+    topOption:
+      optionText: "\u63A2\u95EE\u5468\u6587\u77E9\u4E0B\u843D"
+      nextDialogueIndex: 9
+    bottomOption:
+      optionText: "\u63E3\u6D4B\u5723\u610F"
+      nextDialogueIndex: 11
+    nextDialogueIndex: 0
+  - speaker: "\u987E\u95F3\u4E2D"
+    speakerType: 2
+    content: "\u965B\u4E0B\u53EF\u77E5\u5468\u5144\u6700\u540E\u4F20\u56DE\u7684\u6D88\u606F\uFF1F"
+    hasOptions: 0
+    topOption:
+      optionText: 
+      nextDialogueIndex: 0
+    bottomOption:
+      optionText: 
+      nextDialogueIndex: 0
+    nextDialogueIndex: 10
+  - speaker: "\u7687\u4E0A"
+    speakerType: 1
+    content: "\u4ED6\u753B\u4E86\u534A\u5E45\u97E9\u7199\u8F7D\u51FB\u9F13\u56FE\uFF0C\u9898\u4E86\u53E5\u201C\u7FAF\u9F13\u58F0\u50AC\u6DEE\u6C34\u5BD2\u201D\u2026\u2026\uFF08\u51B7\u7B11\uFF09\u6DEE\u6C34\u5BD2\uFF1F\u6715\u770B\u662F\u6709\u4EBA\u5FC3\u5BD2\uFF01"
+    hasOptions: 0
+    topOption:
+      optionText: 
+      nextDialogueIndex: 0
+    bottomOption:
+      optionText: 
+      nextDialogueIndex: 0
+    nextDialogueIndex: 999
+  - speaker: "\u987E\u95F3\u4E2D"
+    speakerType: 2
+    content: "\u965B\u4E0B\u662F\u8981\u81E3\u753B\u97E9\u516C\u7684\u9189\u773C\u2026\u2026\u8FD8\u662F\u753B\u9189\u773C\u80CC\u540E\u7684\u5FC3\u601D\uFF1F"
+    hasOptions: 0
+    topOption:
+      optionText: 
+      nextDialogueIndex: 0
+    bottomOption:
+      optionText: 
+      nextDialogueIndex: 0
+    nextDialogueIndex: 12
+  - speaker: "\u7687\u4E0A"
+    speakerType: 1
+    content: "\uFF08\u629A\u8FC7\u6848\u4E0A\u300A\u6625\u6C5F\u82B1\u6708\u591C\u300B\u6479\u672C\uFF09\uFF1A\u4F60\u89C1\u8FC7\u6625\u6C5F\u591C\u96FE\u5417\uFF1F\u96FE\u91CC\u770B\u82B1\uFF0C\u82B1\u975E\u82B1\u2026\u2026\uFF08\u7A81\u7136\u6390\u65AD\u7B14\u6746\uFF09\u6715\u53EA\u8981\u82B1\uFF01"
+    hasOptions: 0
+    topOption:
+      optionText: 
+      nextDialogueIndex: 0
+    bottomOption:
+      optionText: 
+      nextDialogueIndex: 0
+    nextDialogueIndex: 999

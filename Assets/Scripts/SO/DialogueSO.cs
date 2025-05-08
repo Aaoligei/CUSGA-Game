@@ -5,23 +5,38 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewDialogueData", menuName = "Dialogue System/Dialogue Data")]
 public class DialogueSO : ScriptableObject
 {
-    // ¶¨Òå¶Ô»°ÌõÄ¿µÄ½á¹¹
+    // è¯´è¯è€…ç±»å‹
+    public enum SpeakerType
+    {
+        Narrator,  // æ—ç™½
+        NPC,       // NPC
+        Player     // ä¸»è§’
+    }
+
+    // å•æ¡å¯¹è¯æ¡ç›®çš„ç»“æ„
     [System.Serializable]
     public struct DialogueEntry
     {
-        public string speaker;    // Ëµ»°ÈË
-        [TextArea(3, 10)]         // ¶àĞĞÎÄ±¾¿ò
-        public List<string> contents;    // ¶Ô»°ÄÚÈİ
-        public DialogueOption[] options; // ¶Ô»°Ñ¡Ïî£¨¿ÉÑ¡·ÖÖ§£©
+        public string speaker;           // è¯´è¯è€…åç§°
+        public SpeakerType speakerType;  // è¯´è¯è€…ç±»å‹
+        [TextArea(3, 10)]                // å¤šè¡Œæ–‡æœ¬
+        public string content;           // å¯¹è¯å†…å®¹
+        public bool hasOptions;          // æ˜¯å¦æœ‰é€‰é¡¹
+        public DialogueOption topOption;    // ä¸Šæ–¹é€‰é¡¹
+        public DialogueOption bottomOption; // ä¸‹æ–¹é€‰é¡¹
+        public int nextDialogueIndex;    // æ— é€‰é¡¹æ—¶ä¸‹ä¸€æ¡å¯¹è¯ç´¢å¼•
     }
 
     [System.Serializable]
     public struct DialogueOption
     {
-        public string optionText; // Ñ¡ÏîÎÄ±¾
-        public int nextDialogueIndex; // Ìø×ªµÄÏÂÒ»Ìõ¶Ô»°Ë÷Òı
+        public string optionText;       // é€‰é¡¹æ–‡æœ¬
+        public int nextDialogueIndex;   // è·³è½¬åˆ°ä¸‹ä¸€ä¸ªå¯¹è¯ç´¢å¼•
     }
 
-    // ´æ´¢ËùÓĞ¶Ô»°ÌõÄ¿
+    // å¯¹è¯åç§°ï¼ˆç”¨äºæ ‡è¯†ï¼‰
+    public string dialogueName;
+    
+    // å­˜å‚¨æ‰€æœ‰å¯¹è¯æ¡ç›®
     public DialogueEntry[] entries;
 }

@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d298d25409839774a9c4f3bf4549a6f1, type: 3}
+  m_Name: ExampleDialogue
+  m_EditorClassIdentifier: 
+  dialogueName: IntroDialogue
+  entries:
+  - speaker: 旁白
+    speakerType: 0
+    content: 在那神秘的世界中，一切都不同于我们所知...
+    hasOptions: 0
+    topOption:
+      optionText: 
+      nextDialogueIndex: 0
+    bottomOption:
+      optionText: 
+      nextDialogueIndex: 0
+    nextDialogueIndex: 1
+  - speaker: 林小雨
+    speakerType: 2
+    content: 我已经在这里迷路好几天了，不知道该往哪里走。
+    hasOptions: 0
+    topOption:
+      optionText: 
+      nextDialogueIndex: 0
+    bottomOption:
+      optionText: 
+      nextDialogueIndex: 0
+    nextDialogueIndex: 2
+  - speaker: 陈教授
+    speakerType: 1
+    content: 年轻人，别害怕。你知道自己为什么会来到这里吗？
+    hasOptions: 1
+    topOption:
+      optionText: 我只是在探险时迷路了
+      nextDialogueIndex: 3
+    bottomOption:
+      optionText: 我感觉有种力量引导我来到这里
+      nextDialogueIndex: 4
+    nextDialogueIndex: 0
+  - speaker: 林小雨
+    speakerType: 2
+    content: 我只是在探险时迷路了，没想到会来到这么奇怪的地方。
+    hasOptions: 0
+    topOption:
+      optionText: 
+      nextDialogueIndex: 0
+    bottomOption:
+      optionText: 
+      nextDialogueIndex: 0
+    nextDialogueIndex: 5
+  - speaker: 林小雨
+    speakerType: 2
+    content: 说来奇怪，我总感觉有种无形的力量引导我来到这里。
+    hasOptions: 0
+    topOption:
+      optionText: 
+      nextDialogueIndex: 0
+    bottomOption:
+      optionText: 
+      nextDialogueIndex: 0
+    nextDialogueIndex: 6
+  - speaker: 陈教授
+    speakerType: 1
+    content: 看来是巧合让你来到了这里。不过既然来了，就让我告诉你这个世界的秘密吧。
+    hasOptions: 0
+    topOption:
+      optionText: 
+      nextDialogueIndex: 0
+    bottomOption:
+      optionText: 
+      nextDialogueIndex: 0
+    nextDialogueIndex: 7
+  - speaker: 陈教授
+    speakerType: 1
+    content: 果然如此！看来你已经被选中了。让我告诉你这个世界的秘密吧。
+    hasOptions: 0
+    topOption:
+      optionText: 
+      nextDialogueIndex: 0
+    bottomOption:
+      optionText: 
+      nextDialogueIndex: 0
+    nextDialogueIndex: 7
+  - speaker: 旁白
+    speakerType: 0
+    content: 就这样，陈教授开始向林小雨讲述这个世界的奥秘，一个全新的冒险就此开始...
+    hasOptions: 0
+    topOption:
+      optionText: 
+      nextDialogueIndex: 0
+    bottomOption:
+      optionText: 
+      nextDialogueIndex: 0
+    nextDialogueIndex: -1 

@@ -1,0 +1,53 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.EventSystems;
+
+public class CardMove : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
+{
+    private RectTransform rectTransform;
+    private CanvasGroup canvasGroup;
+    private Canvas canvas;
+    private Transform originalParent;
+
+    private void Awake()
+    {
+        rectTransform = GetComponent<RectTransform>();
+        canvasGroup = GetComponent<CanvasGroup>();
+        // 找到最近的Canvas
+        canvas = GetComponentInParent<Canvas>();
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        // 选中卡牌时可以做高亮等操作
+        // Debug.Log("Card Selected");
+    }
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        // 拖拽开始时让卡牌不再阻挡射线（方便拖到目标区域）
+        canvasGroup.alpha = 0.9f;
+        canvasGroup.blocksRaycasts = false;
+
+        // 记录原父物体
+        originalParent = transform.parent;
+        // 设置为Canvas的子物体，保证在最上层
+        transform.SetParent(canvas.transform, true);
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        // 跟随鼠标移动
+        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        canvasGroup.alpha = 1f;
+        canvasGroup.blocksRaycasts = true;
+
+        // 拖拽结束后还原父物体
+        transform.SetParent(originalParent, true);
+    }
+}

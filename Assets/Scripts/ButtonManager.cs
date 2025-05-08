@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class ButtonManager : MonoBehaviour
 {
-    [Header("½çÃæ°´Å¥")]
+    [Header("ï¿½ï¿½ï¿½æ°´Å¥")]
     public Button kapai_button;
     public Button liaotian_button;
 
@@ -15,7 +15,7 @@ public class ButtonManager : MonoBehaviour
 
     private void Start()
     {
-        // Ìí¼Ó°´Å¥µã»÷ÊÂ¼þ
+        // ï¿½ï¿½ï¿½Ó°ï¿½Å¥ï¿½ï¿½ï¿½ï¿½Â¼ï¿½
         kapai_button.onClick.AddListener(OnKapaiButtonClick);
         liaotian_button.onClick.AddListener(OnLiaotianButtonClick);
 

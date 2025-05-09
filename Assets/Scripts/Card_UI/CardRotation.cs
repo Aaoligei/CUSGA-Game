@@ -5,10 +5,11 @@ using UnityEngine;
 public class CardRotation : MonoBehaviour
 {
     public List<RectTransform> cards; // 卡牌RectTransform列表
-    public float radius = 200f;   // 扇形半径（UI单位通常是像素，建议调大）
-    public float angleRange = 60f; // 扇形总角度
-    public float moveDuration = 0.5f; // 移动时间
+    public float radius = 240f;   // 扇形半径（UI单位通常是像素，建议调大）
+    public float angleRange = 120f; // 扇形总角度
+    public float moveDuration = 0.3f; // 移动时间
     public float idealAngleStep = 200f; // 理想的卡牌间隔角度
+    public float fixedAngleStep = 5f; // 新增：固定间隔角度
 
     private int handCount { get { return cards.Count; } }
 
@@ -26,18 +27,20 @@ public class CardRotation : MonoBehaviour
 
     IEnumerator MoveCardsCoroutine()
     {
-        // 计算实际需要的角度范围
-        float actualAngleRange = Mathf.Min(angleRange, idealAngleStep * (handCount - 1));
+        // 计算理想总角度
+        float idealTotalAngle = fixedAngleStep * (handCount - 1);
+        // 实际总角度不能超过angleRange
+        float actualAngleRange = Mathf.Min(angleRange, idealTotalAngle);
         float startAngle = -actualAngleRange / 2f;
+        float angleStep = handCount > 1 ? actualAngleRange / (handCount - 1) : 0f;
+
         for (int i = 0; i < handCount; i++)
         {
-            float t = handCount == 1 ? 0.5f : (float)i / (handCount - 1);
-            float angle = Mathf.Lerp(startAngle, startAngle + actualAngleRange, t);
+            float angle = startAngle + angleStep * i;
             float rad = angle * Mathf.Deg2Rad;
             Vector2 targetPos = new Vector2(Mathf.Sin(rad), Mathf.Cos(rad)) * radius;
-            Vector3 targetRot = new Vector3(0, 0, -angle); // UI旋转Z轴
+            Vector3 targetRot = new Vector3(0, 0, -angle);
 
-            // 启动每张卡牌的移动协程
             StartCoroutine(MoveCard(cards[i], targetPos, targetRot));
         }
         yield return null;

@@ -80,3 +80,14 @@ MonoBehaviour:
       optionText: 
       nextDialogueIndex: 0
     nextDialogueIndex: 6
+  - speaker: "\u7BA1\u5BB6"
+    speakerType: 1
+    content: "\uFF08\u6382\u94B1\u888B\uFF09\uFF1A\u5F97\u561E\uFF01\u4F5B\u5802\u6697\u683C\u5728\u89C2\u97F3\u50CF\u540E\u5934\uFF0C\u6211\u8DDF\u60A8\u900F\u4E2A\u5E95\u2014\u2014\uFF08\u6324\u773C\uFF09\u738B\u5C4B\u5C71\u90A3\u821E\u88D9\u8170\u95F4\u7F3A\u6761\u91D1\u94FE\u5B50\uFF0C\u60A8\u968F\u4FBF\u6DFB\u51E0\u7B14\uFF0C\u54C4\u5979\u4E50\u5F97\u627E\u4E0D\u7740\u5317\uFF01"
+    hasOptions: 0
+    topOption:
+      optionText: 
+      nextDialogueIndex: 0
+    bottomOption:
+      optionText: 
+      nextDialogueIndex: 0
+    nextDialogueIndex: 7

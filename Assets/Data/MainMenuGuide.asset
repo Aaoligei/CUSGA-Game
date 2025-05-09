@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d298d25409839774a9c4f3bf4549a6f1, type: 3}
+  m_Name: MainMenuGuide
+  m_EditorClassIdentifier: 
+  dialogueName: "\u4E3B\u83DC\u5355\u5F15\u5BFC"
+  entries:
+  - speaker: "\u65C1\u767D"
+    speakerType: 0
+    content: "\u70B9\u51FB\u3010\u5730\u56FE\u3011\u53EF\u4EE5\u524D\u5F80\u97E9\u5E9C\u5404\u4E2A\u5730\u65B9\uFF0C\u767D\u5929\u9650\u5B9A\u53EA\u80FD\u8FDB\u884C\u5361\u724C\u548C\u5BF9\u8BDD\uFF0C\u591C\u665A\u53EA\u80FD\u8FDB\u884C\u641C\u8BC1"
+    hasOptions: 0
+    topOption:
+      optionText: 
+      nextDialogueIndex: 0
+    bottomOption:
+      optionText: 
+      nextDialogueIndex: 0
+    nextDialogueIndex: 1

@@ -6,16 +6,18 @@ using UnityEngine.UI;
 
 public class ButtonManager : MonoBehaviour
 {
-    [Header("���水ť")]
+
     public Button kapai_button;
     public Button liaotian_button;
 
     public GameObject kapai_zhezhao;
     public DialogueManager dialogueManager;
 
+    public GameObject kaipai_UI;
+
     private void Start()
     {
-        // ���Ӱ�ť����¼�
+        
         kapai_button.onClick.AddListener(OnKapaiButtonClick);
         liaotian_button.onClick.AddListener(OnLiaotianButtonClick);
 
@@ -27,16 +29,21 @@ public class ButtonManager : MonoBehaviour
             dialogueManager.DialogueController.isSpecialAction = true;
         });
 
+        dialogueManager.DialogueController.RegisterDialogueCallback(5, () => {
+            ShowLiaoTianButton();
+        });
+
     }
 
     private void OnLiaotianButtonClick()
     {
-        throw new NotImplementedException();
+        kapai_zhezhao.SetActive(false);
     }
 
     private void OnKapaiButtonClick()
     {
-        throw new NotImplementedException();
+        kapai_zhezhao.SetActive(false);
+        kaipai_UI.SetActive(true);
     }
 
     public void ShowKaPaiButton()
@@ -53,5 +60,11 @@ public class ButtonManager : MonoBehaviour
         kapai_zhezhao.GetComponent<Image>().raycastTarget = true;
     }
 
+    //外界调用卡牌提交接口
+    public void KapaiSubmit()
+    {
+        dialogueManager.DialogueController.isSpecialAction = false;
+        kaipai_UI.SetActive(false);
+    }
 
 }

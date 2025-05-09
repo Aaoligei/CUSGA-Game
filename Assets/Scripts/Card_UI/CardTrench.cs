@@ -28,6 +28,13 @@ public class CardTrench : MonoBehaviour, IDropHandler
             // 对齐到槽位中心
             RectTransform cardRect = eventData.pointerDrag.GetComponent<RectTransform>();
             cardRect.anchoredPosition = Vector2.zero;
+
+            // 移除原手牌区的引用并重新排布
+            CardMove move = eventData.pointerDrag.GetComponent<CardMove>();
+            if (move != null && move.handPanel != null)
+            {
+                move.handPanel.RemoveCard(cardRect);
+            }
         }
     }
 }

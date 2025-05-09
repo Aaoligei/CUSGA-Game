@@ -9,6 +9,8 @@ public class CardMove : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     private CanvasGroup canvasGroup;
     private Canvas canvas;
     private Transform originalParent;
+    private Vector3 originalRotation;
+    public CardRotation handPanel; // 拖动前所在的手牌管理器
 
     private void Awake()
     {
@@ -16,6 +18,9 @@ public class CardMove : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         canvasGroup = GetComponent<CanvasGroup>();
         // 找到最近的Canvas
         canvas = GetComponentInParent<Canvas>();
+        // 可以在Inspector里拖拽赋值handPanel，或者在Start里自动查找
+        if (handPanel == null)
+            handPanel = GetComponentInParent<CardRotation>();
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -34,6 +39,9 @@ public class CardMove : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         originalParent = transform.parent;
         // 设置为Canvas的子物体，保证在最上层
         transform.SetParent(canvas.transform, true);
+
+        originalRotation = rectTransform.localEulerAngles;
+        rectTransform.localEulerAngles = Vector3.zero; // 角度正过来
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -47,7 +55,14 @@ public class CardMove : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
 
-        // 拖拽结束后还原父物体
-        transform.SetParent(originalParent, true);
+        // 只有当父物体还是Canvas时，才还原
+        if (transform.parent == canvas.transform)
+        {
+            transform.SetParent(originalParent, true);
+            if (handPanel != null)
+            {
+                handPanel.ArrangeCards();
+            }
+        }
     }
 }

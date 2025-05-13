@@ -16,6 +16,7 @@ public class DialogueManager : MonoBehaviour
     [Header("UI组件")]
     public GameObject dialoguePanel;         // 对话面板
     public Text speakerNameText;             // 说话者名称
+    public Image speakerTextImage;           // 说话者名称背景
     public Text dialogueContentText;         // 对话内容
     public Image characterImage;             // 角色立绘（NPC用）
     public GameObject optionsPanel;          // 选项面板
@@ -61,6 +62,7 @@ public class DialogueManager : MonoBehaviour
         // 设置控制器引用
         dialogueController.dialoguePanel = dialoguePanel;
         dialogueController.speakerNameText = speakerNameText;
+        dialogueController.speakerTextImage = speakerTextImage;
         dialogueController.dialogueContentText = dialogueContentText;
         dialogueController.characterImage = characterImage;
         dialogueController.optionsPanel = optionsPanel;
@@ -234,6 +236,7 @@ public class DialogueController : MonoBehaviour
     [Header("UI组件")]
     public GameObject dialoguePanel;         // 对话面板
     public Text speakerNameText;             // 说话者名称
+    public Image speakerTextImage;           // 说话者名称背景
     public Text dialogueContentText;         // 对话内容
     public Image characterImage;             // 角色立绘（NPC用）
     public GameObject optionsPanel;          // 选项面板
@@ -436,7 +439,10 @@ public class DialogueController : MonoBehaviour
         if (speakerType == DialogueSO.SpeakerType.NPC)
         {
             characterImage.gameObject.SetActive(true);
-            
+            speakerTextImage.gameObject.transform.localPosition = new Vector3(
+                -293,
+                speakerTextImage.gameObject.transform.localPosition.y,
+                speakerTextImage.gameObject.transform.localPosition.z);
             // 尝试加载NPC的立绘
             Sprite npcSprite = Resources.Load<Sprite>($"Characters/{speakerName}");
             if (npcSprite != null)
@@ -452,6 +458,11 @@ public class DialogueController : MonoBehaviour
         {
             // 非NPC不显示立绘
             characterImage.gameObject.SetActive(false);
+            
+            speakerTextImage.gameObject.transform.localPosition = new Vector3(
+                303,
+                speakerTextImage.gameObject.transform.localPosition.y,
+                speakerTextImage.gameObject.transform.localPosition.z);
         }
     }
 

@@ -25,7 +25,7 @@ MonoBehaviour:
       optionText: 
       nextDialogueIndex: 0
     nextDialogueIndex: 1
-  - speaker: "\u987E\u95F3\u4E2D"
+  - speaker: "\u987E\u95F3\u4E2D\uFF08\u6211\uFF09"
     speakerType: 2
     content: "\u97E9\u516C\u591C\u5BB4\u7B19\u6B4C\uFF0C\u5468\u5144\u6216\u9189\u5367\u53A2\u623F\u672A\u9192\u2026\u2026"
     hasOptions: 0
@@ -58,7 +58,7 @@ MonoBehaviour:
       optionText: 
       nextDialogueIndex: 0
     nextDialogueIndex: 4
-  - speaker: "\u987E\u95F3\u4E2D"
+  - speaker: "\u987E\u95F3\u4E2D\uFF08\u6211\uFF09"
     speakerType: 2
     content: "\u81E3\u613F\u4E3A\u965B\u4E0B\u5206\u5FE7\uFF0C\u97E9\u516C\u9189\u4E2D\u5F62\u8C8C\uFF0C\u5FC5\u4EE5\u7B14\u58A8\u5982\u5B9E\u76F8\u5F55\u3002"
     hasOptions: 0
@@ -80,7 +80,7 @@ MonoBehaviour:
       optionText: 
       nextDialogueIndex: 0
     nextDialogueIndex: 6
-  - speaker: "\u987E\u95F3\u4E2D"
+  - speaker: "\u987E\u95F3\u4E2D\uFF08\u6211\uFF09"
     speakerType: 2
     content: "\u65E0\u6868\u4E4B\u821F\uFF0C\u987A\u6D41\u800C\u901D\uFF0C\u65B9\u663E\u2026\u2026\u5929\u5730\u60A0\u60A0\u3002"
     hasOptions: 0
@@ -113,7 +113,7 @@ MonoBehaviour:
       optionText: "\u63E3\u6D4B\u5723\u610F"
       nextDialogueIndex: 11
     nextDialogueIndex: 0
-  - speaker: "\u987E\u95F3\u4E2D"
+  - speaker: "\u987E\u95F3\u4E2D\uFF08\u6211\uFF09"
     speakerType: 2
     content: "\u965B\u4E0B\u53EF\u77E5\u5468\u5144\u6700\u540E\u4F20\u56DE\u7684\u6D88\u606F\uFF1F"
     hasOptions: 0
@@ -135,7 +135,7 @@ MonoBehaviour:
       optionText: 
       nextDialogueIndex: 0
     nextDialogueIndex: 999
-  - speaker: "\u987E\u95F3\u4E2D"
+  - speaker: "\u987E\u95F3\u4E2D\uFF08\u6211\uFF09"
     speakerType: 2
     content: "\u965B\u4E0B\u662F\u8981\u81E3\u753B\u97E9\u516C\u7684\u9189\u773C\u2026\u2026\u8FD8\u662F\u753B\u9189\u773C\u80CC\u540E\u7684\u5FC3\u601D\uFF1F"
     hasOptions: 0

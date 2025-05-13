@@ -36,7 +36,7 @@ MonoBehaviour:
       optionText: 
       nextDialogueIndex: 0
     nextDialogueIndex: 2
-  - speaker: "\u987E\u95F3\u4E2D"
+  - speaker: "\u987E\u95F3\u4E2D\uFF08\u6211\uFF09"
     speakerType: 2
     content: "\uFF08\u629B\u91D1\u94E4\uFF09\u52B3\u70E6\u901A\u878D\uFF0C\u97E9\u516C\u7684\u300A\u591C\u5BB4\u56FE\u300B\u9700\u753B\u5F97\u7CBE\u7EC6\u4E9B\u3002"
     hasOptions: 0

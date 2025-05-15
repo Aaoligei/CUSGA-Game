@@ -55,11 +55,44 @@ public class CardMove : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
 
-        // 只有当父物体还是Canvas时，才还原
-        if (transform.parent == canvas.transform)
+        // 检查是否被放到了其他卡槽上
+        bool droppedOnTrench = transform.parent != canvas.transform;
+
+        // 如果没有放到卡槽上，检查是否在手牌区域范围内
+        if (!droppedOnTrench)
         {
-            transform.SetParent(originalParent, true);
-            if (handPanel != null)
+            // 找到带有HandCard组件的UI对象
+            HandCard handCardUI = FindObjectOfType<HandCard>();
+            if (handCardUI != null && handPanel != null)
+            {
+                // 检查鼠标位置是否在HandCard的UI区域内
+                if (RectTransformUtility.RectangleContainsScreenPoint(
+                    handCardUI.GetComponent<RectTransform>(), 
+                    eventData.position, 
+                    eventData.pressEventCamera))
+                {
+                    Debug.Log("卡牌回到手牌区");
+                    // 卡牌拖回了手牌区域，设置为HandPanel的子物体
+                    transform.SetParent(handPanel.transform);
+                    
+                    // 添加到手牌区并排列
+                    if (!handPanel.cards.Contains(rectTransform))
+                    {
+                        handPanel.AddCard(rectTransform);
+                        Debug.Log("添加卡牌到手牌列表");
+                    }
+                    else
+                    {
+                        handPanel.ArrangeCards();
+                        Debug.Log("重新排列手牌");
+                    }
+                    return; // 已处理，退出方法
+                }
+            }
+            
+            // 如果不在手牌区域内，返回原来的位置
+            transform.SetParent(originalParent);
+            if (handPanel != null && handPanel.cards.Contains(rectTransform))
             {
                 handPanel.ArrangeCards();
             }

@@ -60,15 +60,15 @@ namespace Game.UI {
             // 添加按钮点击事件,点击对应按钮切换至对应场景
             AddButtonClickListener("韩熙载房间按钮", () =>{UnitySceneManager.LoadScene("韩熙载"); UIManager.Instance.CloseUI(UIType.MapUI); });
             AddButtonClickListener("郎粲房间按钮", () => { UnitySceneManager.LoadScene("郎粲"); UIManager.Instance.CloseUI(UIType.MapUI); });
-            AddButtonClickListener("朱先房间按钮", () => { UnitySceneManager.LoadScene("朱铣"); UIManager.Instance.CloseUI(UIType.MapUI); });
+            AddButtonClickListener("朱先房间按钮", () => { UnitySceneManager.LoadScene("朱铣"); UIManager.Instance.CloseUI(UIType.MapUI);});
             AddButtonClickListener("李姬房间按钮", () => { UnitySceneManager.LoadScene("李姬"); UIManager.Instance.CloseUI(UIType.MapUI); });
             AddButtonClickListener("德明和尚房间按钮", () => { UnitySceneManager.LoadScene("德明和尚"); UIManager.Instance.CloseUI(UIType.MapUI); });
             AddButtonClickListener("李嘉明房间按钮", () => { UnitySceneManager.LoadScene("李嘉明"); UIManager.Instance.CloseUI(UIType.MapUI); });
             AddButtonClickListener("舒雅房间按钮", () => { UnitySceneManager.LoadScene("舒雅"); UIManager.Instance.CloseUI(UIType.MapUI); });
-            AddButtonClickListener("王屋山房间按钮", () => { UnitySceneManager.LoadScene("王屋山"); UIManager.Instance.CloseUI(UIType.MapUI); });
-            AddButtonClickListener("弱兰房间按钮", () => { UnitySceneManager.LoadScene("弱兰"); UIManager.Instance.CloseUI(UIType.MapUI); });
+            AddButtonClickListener("王屋山房间按钮", () => { UnitySceneManager.LoadScene("王屋山"); UIManager.Instance.CloseUI(UIType.MapUI);});
+            AddButtonClickListener("弱兰房间按钮", () => { UnitySceneManager.LoadScene("弱兰"); UIManager.Instance.CloseUI(UIType.MapUI);});
             AddButtonClickListener("陈致雍房间按钮", () => { UnitySceneManager.LoadScene("陈致雍"); UIManager.Instance.CloseUI(UIType.MapUI); });
-            //AddButtonClickListener("回主界面按钮", () => { UnitySceneManager.LoadScene("主界面"); });
+            AddButtonClickListener("回主界面按钮", () => { UnitySceneManager.LoadScene("MainMenu"); UIManager.Instance.CloseUI(UIType.MapUI);});
             //AddButtonClickListener("管家房间按钮", () => { UnitySceneManager.LoadScene("管家"); });
             AddButtonClickListener("关闭按钮", () => CloseUI());
         }

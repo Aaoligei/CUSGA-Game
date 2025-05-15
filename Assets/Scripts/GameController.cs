@@ -116,7 +116,8 @@ public class GameController : MonoBehaviour
         if (!string.IsNullOrEmpty(nextSceneName))
         {
             Debug.Log($"加载下一个场景: {nextSceneName}");
-            SceneManager.LoadScene(nextSceneName);
+            SceneTransitionManager.Instance.LoadSceneWithRecord(nextSceneName);
+            //SceneManager.LoadScene(nextSceneName);
         }
         else
         {

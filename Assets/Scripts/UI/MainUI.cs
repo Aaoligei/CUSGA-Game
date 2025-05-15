@@ -15,14 +15,14 @@ namespace Game.UI
         // 左侧区域
         private Text _timeText;          // 时间文本
         private Text _actionPointsText;  // 行动点数文本
-        [SerializeField] private Button _mapButton;       // 地图按钮
+        //[SerializeField] private Button _mapButton;       // 地图按钮
 
         // 右侧区域
         [SerializeField] private Button _catalogButton;   // 图鉴按钮
-        private Button _saveButton;      // 存档按钮
-        private Button _notesButton;     // 笔录按钮
-        private Button _cardButton;     // 卡牌按钮
-        private Button _tipButton;       // 锦囊按钮
+        //private Button _saveButton;      // 存档按钮
+        //private Button _notesButton;     // 笔录按钮
+        //private Button _cardButton;     // 卡牌按钮
+        //private Button _tipButton;       // 锦囊按钮
         private Button _settingsButton;  // 设置按钮
         private Button _factionButton;   // 阵营按钮
 
@@ -56,13 +56,12 @@ namespace Game.UI
             // 顶部区域
             _timeText = GetText("TimeText");
             _actionPointsText = GetText("ActionPointsText");
-            _mapButton = GetButton("地图按钮");
-            _saveButton = GetButton("SaveButton");
+            //_mapButton = GetButton("地图按钮");
+            //_saveButton = GetButton("SaveButton");
             
-            // 中央区域
+            //_notesButton = GetButton("笔录按钮");
+            //_cardButton = GetButton("卡牌按钮");
             _catalogButton = GetButton("图鉴按钮");
-            _notesButton = GetButton("笔录按钮");
-            _cardButton = GetButton("卡牌按钮");
             _settingsButton = GetButton("SettingsButton");
             _factionButton = GetButton("FactionButton");
 
@@ -70,13 +69,13 @@ namespace Game.UI
             _itemContainer = transform.Find("ItemContainer");
             
             // 添加按钮点击事件
-            AddButtonClickListener("地图按钮", OnMapButtonClick);
+            //AddButtonClickListener("地图按钮", OnMapButtonClick);
             AddButtonClickListener("SaveButton", OnSaveButtonClick);
             AddButtonClickListener("图鉴按钮", OnCatalogButtonClick);
-            AddButtonClickListener("笔录按钮", OnNotesButtonClick);
+            //AddButtonClickListener("笔录按钮", OnNotesButtonClick);
             AddButtonClickListener("FactionButton", OnFactionButtonClick);
             AddButtonClickListener("SettingsButton", OnSettingsButtonClick);
-            AddButtonClickListener("卡牌按钮", OnCardButtonClick);
+            //AddButtonClickListener("卡牌按钮", OnCardButtonClick);
         }
 
 

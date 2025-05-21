@@ -12,34 +12,34 @@ namespace Game.UI
     public class NotesUI : BaseUI
     {
         // 一级页面
-        private Button _backButton;                 // 返回按钮
+        [SerializeField] private Button _backButton;                 // 返回按钮
         [SerializeField]private Transform _characterList;           // 角色列表容器
-       
+
         // 二级页面
-        private GameObject _notesPanel;             // 笔录面板
-        private Text _characterNameText;            // 角色名称文本
-        private Image _characterImage;              // 角色图像
-        private Transform _notesList;               // 笔录列表容器
-        private Button _closeNotesButton;           // 关闭笔录按钮
-        
+        [SerializeField] private GameObject _notesPanel;             // 笔录面板
+        [SerializeField] private Text _characterNameText;            // 角色名称文本
+        [SerializeField] private Image _characterImage;              // 角色图像
+        [SerializeField] private Transform _notesList;               // 笔录列表容器
+        [SerializeField] private Button _closeNotesButton;           // 关闭笔录按钮
+
         // 三级页面
-        private GameObject _noteDetailPanel;        // 笔录详情面板
-        private Text _noteTitleText;                // 笔录标题文本
-        private Text _noteContentText;              // 笔录内容文本
-        private Button _closeNoteDetailButton;      // 关闭笔录详情按钮
-        
+        [SerializeField] private GameObject _noteDetailPanel;        // 笔录详情面板
+        [SerializeField] private Text _noteTitleText;                // 笔录标题文本
+        [SerializeField] private Text _noteContentText;              // 笔录内容文本
+        [SerializeField] private Button _closeNoteDetailButton;      // 关闭笔录详情按钮
+
         // 预制体
-        private GameObject _characterItemPrefab;    // 角色项预制体
-        private GameObject _noteItemPrefab;         // 笔录项预制体
-        
+        [SerializeField] private GameObject _characterItemPrefab;    // 角色项预制体
+        [SerializeField] private GameObject _noteItemPrefab;         // 笔录项预制体
+
         // 当前选中的角色ID
-        private string _currentCharacterId;
-        
+        [SerializeField] private string _currentCharacterId;
+
         // 当前选中的笔录ID
-        private string _currentNoteId;
-        
+        [SerializeField] private string _currentNoteId;
+
         // 笔录内容字典（临时，实际应从数据管理器获取）
-        private Dictionary<string, string> _noteContents = new Dictionary<string, string>();
+        [SerializeField] private Dictionary<string, string> _noteContents = new Dictionary<string, string>();
         
         protected override void OnInit()
         {
@@ -87,8 +87,8 @@ namespace Game.UI
             _noteItemPrefab = Resources.Load<GameObject>("Prefabs/UI/NoteItem");
             
             // 添加按钮点击事件
-            AddButtonClickListener("BackButton", OnBackButtonClick);
-            _closeNotesButton.onClick.AddListener(OnCloseNotesButtonClick);
+            AddButtonClickListener("关闭按钮", OnBackButtonClick);
+            //_closeNotesButton.onClick.AddListener(OnCloseNotesButtonClick);
             _closeNoteDetailButton.onClick.AddListener(OnCloseNoteDetailButtonClick);
             
             // 初始隐藏二级和三级页面

@@ -13,19 +13,19 @@ namespace Game.UI
     public class SaveUI : BaseUI
     {
         // 界面组件
-        private Button _backButton;                // 返回按钮
-        private Button _newSaveButton;             // 新建存档按钮
-        private Transform _saveItemContainer;      // 存档项容器
-        private GameObject _confirmPanel;          // 确认面板
-        private Text _confirmText;                 // 确认文本
-        private Button _confirmYesButton;          // 确认是按钮
-        private Button _confirmNoButton;           // 确认否按钮
-        
+        [SerializeField] private Button _backButton;                // 返回按钮
+        [SerializeField] private Button _newSaveButton;             // 新建存档按钮
+        [SerializeField] Transform _saveItemContainer;      // 存档项容器
+        [SerializeField] private GameObject _confirmPanel;          // 确认面板
+        [SerializeField] Text _confirmText;                 // 确认文本
+        [SerializeField] Button _confirmYesButton;          // 确认是按钮
+        [SerializeField] Button _confirmNoButton;           // 确认否按钮
+
         // 存档项预制体
-        private GameObject _saveItemPrefab;
-        
+        [SerializeField] private GameObject _saveItemPrefab;
+
         // 当前选中的存档索引
-        private int _selectedSaveIndex = -1;
+        [SerializeField] private int _selectedSaveIndex = -1;
         
         // 存档确认操作类型
         private enum ConfirmType
@@ -35,9 +35,9 @@ namespace Game.UI
             Save,   // 保存存档
             Delete  // 删除存档
         }
-        
+
         // 当前确认操作类型
-        private ConfirmType _currentConfirmType = ConfirmType.None;
+        [SerializeField] private ConfirmType _currentConfirmType = ConfirmType.None;
         
         protected override void OnInit()
         {
@@ -59,7 +59,7 @@ namespace Game.UI
         private void InitComponents()
         {
             // 获取界面组件
-            _backButton = GetButton("取消按钮");
+            _backButton = GetButton("关闭按钮");
             _newSaveButton = GetButton("新存档按钮");
             _saveItemContainer = transform.Find("SaveItemContainer");
             _confirmPanel = transform.Find("ConfirmPanel").gameObject;
@@ -71,7 +71,7 @@ namespace Game.UI
             _saveItemPrefab = Resources.Load<GameObject>("Prefabs/UI/SaveItem");
             
             // 添加按钮点击事件
-            AddButtonClickListener("取消按钮", OnBackButtonClick);
+            AddButtonClickListener("关闭按钮", OnBackButtonClick);
             AddButtonClickListener("新存档按钮", OnNewSaveButtonClick);
             _confirmYesButton.onClick.AddListener(OnConfirmYesButtonClick);
             _confirmNoButton.onClick.AddListener(OnConfirmNoButtonClick);

@@ -64,7 +64,7 @@ namespace Game.UI
         private void InitComponents()
         {
             // 获取界面组件
-            _closeButton = GetButton("CloseButton");
+            _closeButton = GetButton("关闭按钮");
             _cardImage = GetImage("CardImage");
             _cardNameText = GetText("CardNameText");
             _cardDescriptionText = GetText("CardDescriptionText");
@@ -87,7 +87,7 @@ namespace Game.UI
             _gongqingSelectImage.gameObject.SetActive(false);
 
             // 添加按钮点击事件
-            AddButtonClickListener("CloseButton", OnCloseButtonClick);
+            AddButtonClickListener("关闭按钮", OnCloseButtonClick);
             AddButtonClickListener("UseButton", OnUseButtonClick);
 
             AddButtonClickListener("威逼按钮", () => { 

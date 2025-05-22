@@ -19,6 +19,9 @@ public class ItemManager : Singleton<ItemManager>
     public List<ItemSO> itemSOList = new List<ItemSO>();
     private Dictionary<int, Item> _items = new Dictionary<int, Item>();//道具字典
     public Dictionary<int, Item> Items => _items;
+    public Dictionary<string,Item> _itemsStr = new Dictionary<string, Item>();//道具字典名字索引
+    public Dictionary<string, Item> ItemsStr => _itemsStr;
+
     [SerializeField] private List<Item> ItemsInBag;//背包中的道具列表
 
     private void Awake()
@@ -36,6 +39,21 @@ public class ItemManager : Singleton<ItemManager>
                 count = 0
             };
             _items.Add(item.id, item);
+        }
+
+        //从SO中读取道具数据到字典中
+        _itemsStr.Clear();
+        foreach (ItemSO itemSO in itemSOList)
+        {
+            Item item = new Item
+            {
+                name = itemSO.itemName,
+                description = itemSO.itemDescription,
+                icon = itemSO.itemIcon,
+                id = itemSO.itemID,
+                count = 0
+            };
+            _itemsStr.Add(item.name, item);
         }
     }
 

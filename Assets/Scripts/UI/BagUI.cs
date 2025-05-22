@@ -22,9 +22,12 @@ public class BagUI : BaseUI
     [SerializeField] private Text _itemName;       // 道具名称
     [SerializeField] private Button _backPropButton; // 返回按钮
 
+    private ItemManager _itemManager;
 
     private void Start()
     {
+        _itemManager = ItemManager.Instance;
+
         RegisterUIComponents();
 
         InitComponents();
@@ -65,6 +68,8 @@ public class BagUI : BaseUI
                         Sprite selectSprite = childchild.GetComponentInChildren<Image>().sprite;
                         _itemSprite.sprite = selectSprite;
                         _itemName.text = childchild.GetComponentInChildren<Text>().text;
+                        string itemNameStr = _itemName.text.ToString();
+                        _itemDescription.text = GetItem(itemNameStr).description;
                     }
                     child.GetComponent<Image>().sprite = selectImage;
                     child.transform.position = new Vector3(child.transform.position.x, child.transform.position.y + 20, child.transform.position.z);
@@ -72,6 +77,17 @@ public class BagUI : BaseUI
                 });
             }
         }
+    }
+
+    //从道具字典中获取道具数据
+    private ItemManager.Item GetItem(string str)
+    {
+        return _itemManager.ItemsStr[str];
+    } 
+
+    private void UpdateItemsInBagUI()
+    {
+
     }
 
 }

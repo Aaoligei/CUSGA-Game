@@ -15,6 +15,12 @@ public class ItemManager : Singleton<ItemManager>
         public int count;
     }
 
+    [SerializeField] private Transform contentParent; // 拖入图中的“内容”物体
+    [SerializeField] private GameObject itemPrefab; // 道具预制体
+
+    private Vector2 startPosition = Vector2.zero;
+    private float spacing = 10f; // 道具间距
+
     [SerializeField]
     public List<ItemSO> itemSOList = new List<ItemSO>();
     private Dictionary<int, Item> _items = new Dictionary<int, Item>();//道具字典
@@ -22,10 +28,17 @@ public class ItemManager : Singleton<ItemManager>
     public Dictionary<string,Item> _itemsStr = new Dictionary<string, Item>();//道具字典名字索引
     public Dictionary<string, Item> ItemsStr => _itemsStr;
 
-    [SerializeField] private List<Item> ItemsInBag;//背包中的道具列表
+    [SerializeField] private List<Item> itemsInBag;//背包中的道具列表
+    public List<Item> ItemsInBag
+    {
+        get => itemsInBag;
+        set => itemsInBag = value;
+    }
 
     private void Awake()
     {
+        base.Awake();
+        DontDestroyOnLoad(this);
         //从SO中读取道具数据到字典中
         _items.Clear();
         foreach (ItemSO itemSO in itemSOList)
@@ -57,4 +70,49 @@ public class ItemManager : Singleton<ItemManager>
         }
     }
 
+    void Start()
+    {
+        GenerateBagItems();
+    }
+
+    public void GenerateBagItems()
+    {
+        // 清空现有道具
+        foreach (Transform child in contentParent)
+        {
+            Destroy(child.gameObject);
+        }
+
+        if (ItemsInBag != null)
+        {
+            float totalWidth = 0f;
+
+            foreach (ItemManager.Item item in ItemsInBag)
+            {
+                if (itemPrefab != null)
+                {
+                    GameObject newItem = Instantiate(itemPrefab, contentParent);
+                    newItem.name = item.name;
+
+                    RectTransform newItemRect = newItem.GetComponent<RectTransform>();
+
+                    // 设置横向排列位置
+                    if (newItemRect != null)
+                    {
+                        newItemRect.anchoredPosition = new Vector2(totalWidth, 0f);
+                        totalWidth += newItemRect.rect.width + spacing;
+                    }
+                }
+            }
+        }
+    }
+
+    // 如果需要随时更新背包显示，可以调用此方法
+    public void UpdateBagDisplay()
+    {
+        GenerateBagItems();
+    }
+
+
 }
+

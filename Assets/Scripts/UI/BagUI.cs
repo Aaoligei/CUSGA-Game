@@ -56,21 +56,24 @@ public class BagUI : BaseUI
             {
                 button.onClick.AddListener(() =>
                 {
+                    //弹出物品说明界面
+                    _itemProp.SetActive(true);
+                    // 显示物品说明
+                    _itemName.text = GetComponentInChildren<Text>().text.ToString();
+                    string itemNameStr = _itemName.text.ToString();
+                    ItemManager.Item displayItem = GetItem(itemNameStr);
+
+                    _itemSprite.sprite = displayItem.icon;
+                    _itemDescription.text = displayItem.description;
+
                     foreach (Transform childchild in _itemList)
                     {
                         // 重置所有物品的图片和位置
                         childchild.GetComponent<Image>().sprite = defaultImage;
                         childchild.transform.position = new Vector3(childchild.transform.position.x, child.transform.position.y, childchild.transform.position.z);
                         childchild.GetComponent<Image>().raycastTarget = true; // 启用点击事件
-
-                        //弹出物品说明界面
-                        _itemProp.SetActive(true);
-                        Sprite selectSprite = childchild.GetComponentInChildren<Image>().sprite;
-                        _itemSprite.sprite = selectSprite;
-                        _itemName.text = childchild.GetComponentInChildren<Text>().text;
-                        string itemNameStr = _itemName.text.ToString();
-                        _itemDescription.text = GetItem(itemNameStr).description;
                     }
+
                     child.GetComponent<Image>().sprite = selectImage;
                     child.transform.position = new Vector3(child.transform.position.x, child.transform.position.y + 20, child.transform.position.z);
                     child.GetComponent<Image>().raycastTarget = false; // 禁用点击事件
